@@ -51,6 +51,11 @@
   overflow-y: auto;
 }
 
+.modal-body p {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 16px;

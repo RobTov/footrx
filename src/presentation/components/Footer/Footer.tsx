@@ -5,6 +5,8 @@ import { CONTACT_INFO, WHATSAPP_LINK } from '../../../infrastructure/data/conten
 import Modal from '../Modal/Modal';
 import './Footer.css';
 
+const currentYear = new Date().getFullYear();
+
 const TERMS_CONTENT = `By scheduling an appointment with Foot RX & Wellness / ACTS Health and Compliance, you acknowledge and agree to the following terms and conditions.
 
 1. Scope of Services
@@ -110,7 +112,7 @@ export default function Footer() {
           <button className="footer-link" onClick={() => setShowBrand(true)}>
             Brand Relationship Disclosure
           </button>
-          <p className="copyright">© 2024 FOOTRX. All rights reserved.</p>
+          <p className="copyright">© {currentYear} FOOTRX. All rights reserved.</p>
         </div>
       </div>
 

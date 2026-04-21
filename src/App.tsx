@@ -13,23 +13,31 @@ import FreeEvaluation from './presentation/pages/FreeEvaluation/FreeEvaluation';
 import Contact from './presentation/pages/Contact/Contact';
 import './presentation/styles/global.css';
 
+const pageComponents: Record<string, React.ComponentType> = {
+  '/': Home,
+  '/why-choose-us': WhyChooseUs,
+  '/services': Services,
+  '/providers': Providers,
+  '/schedule': Schedule,
+  '/faq': FAQ,
+  '/services-explained': ServicesExplained,
+  '/free-evaluation': FreeEvaluation,
+  '/contact': Contact,
+};
+
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/why-choose-us" element={<WhyChooseUs />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/providers" element={<Providers />} />
-        <Route path="/schedule" element={<Schedule />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/services-explained" element={<ServicesExplained />} />
-        <Route path="/free-evaluation" element={<FreeEvaluation />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location}>
+      {Object.entries(pageComponents).map(([path, Component]) => (
+        <Route key={path} path={path} element={
+          <AnimatePresence mode="wait">
+            <Component />
+          </AnimatePresence>
+        } />
+      ))}
+    </Routes>
   );
 }
 

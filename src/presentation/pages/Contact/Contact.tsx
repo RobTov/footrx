@@ -82,7 +82,7 @@ export default function Contact() {
               <h3>Our Location</h3>
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.8354735274622!2d-96.94226592345677!3d32.58851977391817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e1d59b4c8e1c3%3A0x1234567890abcdef!2s1421%20N%20Hwy%2067%2C%20Ste%20200-C%2C%20Cedar%20Hill%2C%20TX%2075104!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.8354735274622!2d-96.94226592345677!3d32.58851977391817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e1d59b4c8e1c3%3A0x1234567890abcdef!2s1421+N+Hwy+67%2C+STE+200-C%2C+Cedar+Hill%2C+TX+75104!5e0!3m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

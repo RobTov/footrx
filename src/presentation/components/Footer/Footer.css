@@ -39,12 +39,17 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
   opacity: 0.9;
   font-size: 14px;
   transition: all 0.3s ease;
+  color: var(--primary-light);
+}
+
+.contact-item span {
+  color: var(--primary-light);
 }
 
 .contact-item:hover {

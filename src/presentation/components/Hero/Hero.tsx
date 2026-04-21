@@ -7,8 +7,12 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-background">
+        <img 
+          src="https://images.unsplash.com/photo-1519953316378-1a19bc956d5d?w=1920&h=1080&fit=crop" 
+          alt="Foot care professional" 
+          className="hero-bg-image"
+        />
         <div className="hero-overlay"></div>
-        <div className="hero-pattern"></div>
       </div>
       
       <div className="hero-content">
