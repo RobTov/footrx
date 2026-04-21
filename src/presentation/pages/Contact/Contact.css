@@ -80,7 +80,7 @@
 
 .contact-value {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   font-weight: 500;
 }
 

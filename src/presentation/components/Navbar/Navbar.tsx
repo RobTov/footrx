@@ -41,7 +41,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <NavLink to="/" className="navbar-logo" onClick={closeMenu}>
-          <span className="logo-text">FOOTRX</span>
+          <img src="/logo.png" alt="FOOTRX" className="logo-image" />
         </NavLink>
 
         <nav className="navbar-nav desktop">

@@ -8,8 +8,8 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1519953316378-1a19bc956d5d?w=1920&h=1080&fit=crop" 
-          alt="Foot care professional" 
+          src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1920&h=1080&fit=crop" 
+          alt="Medical foot care" 
           className="hero-bg-image"
         />
         <div className="hero-overlay"></div>
