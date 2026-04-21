@@ -1,0 +1,132 @@
+.providers-hero {
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+  text-align: center;
+}
+
+.providers-hero h1 {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.providers-hero .hero-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+.providers-content {
+  padding: 80px 0;
+  background: var(--background);
+}
+
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.provider-card {
+  background: var(--card-bg);
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.provider-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.provider-header {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.provider-header h2 {
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.provider-title {
+  font-size: 16px;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.provider-description p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.provider-description p:last-child {
+  margin-bottom: 0;
+}
+
+.providers-cta {
+  padding: 80px 0;
+  background: var(--card-bg);
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #f0f4f2 0%, #e8f0ed 100%);
+  padding: 64px 48px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 2px solid var(--primary);
+}
+
+.cta-box h3 {
+  color: var(--accent);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.cta-box p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .providers-grid {
+    gap: 32px;
+  }
+
+  .provider-card {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .providers-hero {
+    padding: 120px 0 48px;
+  }
+
+  .providers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-card {
+    padding: 24px;
+  }
+
+  .provider-header h2 {
+    font-size: 24px;
+  }
+
+  .cta-box {
+    padding: 48px 24px;
+  }
+
+  .cta-box h3 {
+    font-size: 24px;
+  }
+}

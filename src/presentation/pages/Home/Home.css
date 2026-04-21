@@ -1,0 +1,123 @@
+.home-why-choose-us {
+  padding: 100px 0;
+  background: var(--background);
+}
+
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.why-choose-card {
+  background: var(--card-bg);
+  padding: 32px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.why-choose-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.why-choose-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.why-choose-card h3 {
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.why-choose-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.home-cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.home-services {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--background) 0%, #f0f4f2 100%);
+}
+
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.service-card-link {
+  display: block;
+}
+
+.home-service-card {
+  background: var(--card-bg);
+  padding: 48px 32px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card-link:hover .home-service-card {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.home-service-card h3 {
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.home-service-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-why-choose-us,
+  .home-services {
+    padding: 64px 0;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose-card {
+    padding: 24px;
+  }
+
+  .home-service-card {
+    padding: 32px 24px;
+  }
+}
