@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1920&h=1080&fit=crop" 
+          src="/hero.jpg" 
           alt="Medical foot care" 
           className="hero-bg-image"
         />
@@ -20,7 +20,7 @@ export default function Hero() {
           className="hero-text"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <h1>FOOTRX</h1>
           <p className="hero-subtitle">Medical-Grade Foot and Nail Care!</p>
@@ -29,7 +29,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hero-btn btn btn-whatsapp">
             Contact Us on WhatsApp
@@ -42,7 +42,7 @@ export default function Hero() {
         className="hero-scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <div className="scroll-dot"></div>
       </motion.div>

@@ -9,15 +9,14 @@ export default function Contact() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.3 }}
     >
       <section className="contact-hero">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <h1>Contact Us</h1>
             <p className="hero-subtitle">
@@ -43,7 +42,7 @@ export default function Contact() {
                 </div>
               </a>
               
-              <a href={`mailto:${CONTACT_INFO.email}`} className="contact-item">
+              <a href={`mailto:${CONTACT_INFO.email}`} target="_blank" rel="noopener noreferrer" className="contact-item" style={{ textDecoration: 'none' }}>
                 <div className="contact-icon">
                   <FiMail />
                 </div>
@@ -53,7 +52,7 @@ export default function Contact() {
                 </div>
               </a>
               
-              <div className="contact-item">
+              <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`} target="_blank" rel="noopener noreferrer" className="contact-item" style={{ textDecoration: 'none' }}>
                 <div className="contact-icon">
                   <FiMapPin />
                 </div>
@@ -61,7 +60,7 @@ export default function Contact() {
                   <span className="contact-label">Address</span>
                   <span className="contact-value">{CONTACT_INFO.address}</span>
                 </div>
-              </div>
+              </a>
 
               <div className="social-section">
                 <h4>Follow Us</h4>

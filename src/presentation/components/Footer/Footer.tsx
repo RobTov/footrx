@@ -78,18 +78,18 @@ export default function Footer() {
 
           <div className="footer-contact">
             <h4>Contact Us</h4>
-            <a href={WHATSAPP_LINK} className="contact-item">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="contact-item">
               <FiPhone />
               <span>{CONTACT_INFO.phone}</span>
             </a>
-            <a href={`mailto:${CONTACT_INFO.email}`} className="contact-item">
+            <a href={`mailto:${CONTACT_INFO.email}`} target="_blank" rel="noopener noreferrer" className="contact-item">
               <FiMail />
               <span>{CONTACT_INFO.email}</span>
             </a>
-            <div className="contact-item">
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`} target="_blank" rel="noopener noreferrer" className="contact-item">
               <FiMapPin />
               <span>{CONTACT_INFO.address}</span>
-            </div>
+            </a>
           </div>
 
           <div className="footer-social">

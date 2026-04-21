@@ -41,7 +41,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <NavLink to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src="/logo.png" alt="FOOTRX" className="logo-image" />
+          <img src="/log.png" alt="FOOTRX" className="logo-image" />
         </NavLink>
 
         <nav className="navbar-nav desktop">
@@ -82,7 +82,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <nav className="mobile-nav">
               {navLinks.map((link, index) => (

@@ -80,8 +80,12 @@
 
 .contact-value {
   font-size: 14px;
-  color: var(--text-primary) !important;
+  color: #21A082;
   font-weight: 500;
+}
+
+a.contact-item:hover .contact-value {
+  color: #1A5C5D;
 }
 
 .social-section {

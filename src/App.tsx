@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './presentation/components/Navbar/Navbar';
 import Footer from './presentation/components/Footer/Footer';
 import Home from './presentation/pages/Home/Home';
@@ -25,19 +25,28 @@ const pageComponents: Record<string, React.ComponentType> = {
   '/contact': Contact,
 };
 
+const fadeAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.3 },
+};
+
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <Routes location={location}>
-      {Object.entries(pageComponents).map(([path, Component]) => (
-        <Route key={path} path={path} element={
-          <AnimatePresence mode="wait">
-            <Component />
-          </AnimatePresence>
-        } />
-      ))}
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {Object.entries(pageComponents).map(([path, Component]) => (
+          <Route key={path} path={path} element={
+            <motion.div {...fadeAnimation}>
+              <Component />
+            </motion.div>
+          } />
+        ))}
+      </Routes>
+    </AnimatePresence>
   );
 }
 

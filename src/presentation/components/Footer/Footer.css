@@ -49,7 +49,7 @@
 }
 
 .contact-item span {
-  color: var(--primary-light);
+  color: var(--primary) !important;
 }
 
 .contact-item:hover {

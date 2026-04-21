@@ -13,22 +13,22 @@ export const IN_OFFICE_SERVICES: Service[] = [
   {
     id: 'callus-treatment',
     name: 'Callus Treatment Only',
-    image: 'https://images.unsplash.com/photo-1616394584738-fb4e5fef725c?w=400&h=300&fit=crop',
+    image: '/callus-t.jpg',
   },
   {
     id: 'wellness-pedicure',
     name: 'Wellness Medical Pedicure',
-    image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=400&h=300&fit=crop',
+    image: 'wellness-mp.jpg',
   },
   {
     id: 'nail-trimming',
     name: 'Toenail/Nail Trimming',
-    image: 'https://images.unsplash.com/photo-1588776814546-1c42eb36825f?w=400&h=300&fit=crop',
+    image: 'toe-nail-trimming.jpg',
   },
   {
     id: 'medical-pedicure',
     name: 'Medical Pedicure',
-    image: 'https://images.unsplash.com/photo-1519953316378-1a19bc956d5d?w=400&h=300&fit=crop',
+    image: 'medical-pedicure.jpg',
   },
 ];
 
@@ -36,17 +36,17 @@ export const MOBILE_SERVICES: Service[] = [
   {
     id: 'mobile-medical-pedicure',
     name: 'Medical Pedicure',
-    image: 'https://images.unsplash.com/photo-1519953316378-1a19bc956d5d?w=400&h=300&fit=crop',
+    image: 'medical-pedicure.jpg',
   },
   {
     id: 'mobile-callus-treatment',
     name: 'Callus Treatment Only',
-    image: 'https://images.unsplash.com/photo-1616394584738-fb4e5fef725c?w=400&h=300&fit=crop',
+    image: 'callus-t.jpg',
   },
   {
     id: 'mobile-nail-trimming',
     name: 'Toenail/Nail Trimming Only',
-    image: 'https://images.unsplash.com/photo-1588776814546-1c42eb36825f?w=400&h=300&fit=crop',
+    image: 'toe-nail-trimming.jpg',
   },
 ];
 
@@ -123,21 +123,21 @@ export const SERVICES_EXPLAINED: ServiceDetail[] = [
   {
     id: 'callus-treatment',
     name: 'Callus Treatment',
-    image: 'https://images.unsplash.com/photo-1616394584738-fb4e5fef725c?w=600&h=400&fit=crop',
+    image: 'callus-t.jpg',
     description:
       'Our callus treatment involves safe, careful removal of thickened skin using professional sterile instruments. We use moisturizing treatments to keep skin soft and prevent future buildup. This service is ideal for individuals with diabetes, neuropathy, or circulation issues who are prone to callus formation.',
   },
   {
     id: 'nail-clipping',
     name: 'Finger Nail and Toe Nail Clipping Only',
-    image: 'https://images.unsplash.com/photo-1588776814546-1c42eb36825f?w=600&h=400&fit=crop',
+    image: 'fn-tn-c.jpg',
     description:
       'Our nail clipping service provides safe, professional trimming of fingernails and toenails. We use sterilized instruments and techniques that minimize the risk of ingrown nails, cuts, or infections. This service is especially important for individuals who have difficulty reaching their feet or have vision limitations.',
   },
   {
     id: 'medical-pedicure',
     name: 'Medical Pedicure Foot Care',
-    image: 'https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&h=400&fit=crop',
+    image: 'medical-pedicure.jpg',
     description:
       'Our medical pedicure is a comprehensive foot care service that includes nail trimming, cuticle care, callus reduction, and skin moisturizing. Performed by licensed nursing staff, this service focuses on preventive care and early detection of potential issues. It is designed for individuals with diabetes, poor circulation, neuropathy, or those seeking proactive foot health maintenance.',
   },
