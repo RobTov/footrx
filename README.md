@@ -7,8 +7,9 @@ A React + TypeScript landing page for FOOTRX, a professional foot care business 
 - **Clean Architecture** - Domain, Infrastructure, and Presentation layers
 - **React Router** - SPA navigation between all sections
 - **Responsive Design** - Mobile, tablet, and desktop layouts
-- **Smooth Animations** - Fade transitions between pages
-- **WhatsApp Integration** - Contact and image upload via WhatsApp
+- **Smooth Animations** - Fade transitions between pages, auto-scroll to top on navigation
+- **Phone Integration** - Contact via direct phone calls (tel: links)
+- **Free Evaluation Form** - Submit via email client (mailto)
 
 ## Sections
 
