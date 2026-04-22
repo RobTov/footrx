@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-background">
         <img 
-          src="/hero.jpg" 
+          src="/hero3.jpg" 
           alt="Medical foot care" 
           className="hero-bg-image"
         />
