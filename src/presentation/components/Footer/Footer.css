@@ -19,6 +19,24 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.footer-logos {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 32px;
+}
+
+.footer-logo {
+  height: 100px;
+  width: 140px;
+  object-fit: contain;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
 .footer-brand h3 {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
@@ -42,14 +60,11 @@
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
+  color: var(--primary);
   opacity: 0.9;
   font-size: 14px;
   transition: all 0.3s ease;
-  color: var(--primary-light);
-}
-
-.contact-item span {
-  color: var(--primary) !important;
+  /* color: var(--primary-light); */
 }
 
 .contact-item:hover {
@@ -129,6 +144,16 @@
   .footer-main {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .footer-logos {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    height: 60px;
+    width: 100px;
   }
 
   .footer {

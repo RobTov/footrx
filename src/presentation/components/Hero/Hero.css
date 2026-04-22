@@ -54,10 +54,19 @@
   font-family: 'Playfair Display', serif;
   font-size: 80px;
   font-weight: 700;
-  color: #FFFFFF;
   letter-spacing: 8px;
   margin-bottom: 16px;
   text-transform: uppercase;
+}
+
+.hero-title-foot {
+  /* color: var(--accent); */
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title-rx {
+  /* color: var(--secondary); */
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-subtitle {
