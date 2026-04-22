@@ -37,7 +37,7 @@ export default function Contact() {
                   <FiPhone />
                 </div>
                 <div className="contact-details">
-                  <span className="contact-label">Phone/WhatsApp</span>
+                  <span className="contact-label">Phone</span>
                   <span className="contact-value">{CONTACT_INFO.phone}</span>
                 </div>
               </a>

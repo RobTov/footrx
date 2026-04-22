@@ -109,8 +109,8 @@ export default function Services() {
           <div className="contact-box">
             <h3>Have Questions?</h3>
             <p>Contact us to learn more about our services and find the right option for you.</p>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              Chat on WhatsApp
+            <a href={WHATSAPP_LINK} className="btn btn-whatsapp">
+              Call Us Now
             </a>
           </div>
         </div>

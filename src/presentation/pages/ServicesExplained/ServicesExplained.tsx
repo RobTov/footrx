@@ -72,8 +72,8 @@ export default function ServicesExplained() {
           </div>
 
           <div className="cta-container">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              Have Questions? Chat with Us
+            <a href={WHATSAPP_LINK} className="btn btn-whatsapp">
+              Have Questions? Call Us Now
             </a>
           </div>
         </div>

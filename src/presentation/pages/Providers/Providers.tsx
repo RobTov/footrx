@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { PROVIDERS, WHATSAPP_LINK } from '../../../infrastructure/data/content';
+import { PROVIDERS, APPOINTMENT_BOOKING_LINK } from '../../../infrastructure/data/content';
 import './Providers.css';
 
 export default function Providers() {
@@ -56,7 +56,7 @@ export default function Providers() {
           <div className="cta-box">
             <h3>Ready to Experience Quality Foot Care?</h3>
             <p>Schedule your appointment today and let our nursing team take care of your feet.</p>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+            <a href={APPOINTMENT_BOOKING_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
               Book Your Visit
             </a>
           </div>

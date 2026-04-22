@@ -68,8 +68,8 @@ export default function FAQ() {
 
           <div className="faq-cta">
             <p>Still have questions?</p>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              Chat with Us
+            <a href={WHATSAPP_LINK} className="btn btn-whatsapp">
+              Call Us Now
             </a>
           </div>
         </div>

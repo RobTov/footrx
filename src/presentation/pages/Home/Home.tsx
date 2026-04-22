@@ -80,8 +80,8 @@ export default function Home() {
           </div>
 
           <div className="home-cta">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              Contact Us on WhatsApp
+            <a href={WHATSAPP_LINK} className="btn btn-whatsapp">
+              Call Us Now
             </a>
           </div>
         </div>

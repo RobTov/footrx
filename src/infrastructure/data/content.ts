@@ -163,6 +163,6 @@ export const WHY_CHOOSE_US = [
   },
 ];
 
-export const WHATSAPP_LINK = `https://wa.me/${CONTACT_INFO.whatsappNumber.replace(/\D/g, '')}`;
+export const WHATSAPP_LINK = `tel:${CONTACT_INFO.whatsappNumber}`;
 export const BOOKING_LINK = 'https://clientportal.us.zandahealth.com/clientportal/footrxhealth/home';
 export const APPOINTMENT_BOOKING_LINK = 'https://clientportal.us.zandahealth.com/clientportal/footrxhealth/appointment-booking';

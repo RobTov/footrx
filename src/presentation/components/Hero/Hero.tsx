@@ -31,8 +31,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hero-btn btn btn-whatsapp">
-            Contact Us on WhatsApp
+          <a href={WHATSAPP_LINK} className="hero-btn btn btn-whatsapp">
+            Call Us Now
             <FiArrowRight />
           </a>
         </motion.div>
