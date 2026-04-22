@@ -13,6 +13,7 @@ const navLinks = [
   { path: '/faq', label: 'FAQ' },
   { path: '/services-explained', label: 'Services Explained' },
   { path: '/free-evaluation', label: 'Free Evaluation' },
+  { path: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -45,7 +46,7 @@ export default function Navbar() {
         </NavLink>
 
         <nav className="navbar-nav desktop">
-          {navLinks.slice(0, 5).map((link) => (
+          {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
@@ -54,20 +55,6 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <div className="nav-dropdown">
-            <span className="nav-link dropdown-trigger">More</span>
-            <div className="dropdown-menu">
-              {navLinks.slice(5).map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
         </nav>
 
         <button className="navbar-toggle mobile" onClick={() => setIsOpen(!isOpen)}>
