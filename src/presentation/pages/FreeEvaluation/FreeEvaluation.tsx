@@ -4,10 +4,30 @@ import { FiUpload, FiX } from 'react-icons/fi';
 import { CONTACT_INFO } from '../../../infrastructure/data/content';
 import './FreeEvaluation.css';
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export default function FreeEvaluation() {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -22,17 +42,37 @@ export default function FreeEvaluation() {
     }
   };
 
-  const handleSubmit = () => {
-    if (!selectedImage) {
-      alert('Please select an image first');
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Please fill in all required fields');
       return;
     }
 
-    const phoneNumber = CONTACT_INFO.whatsappNumber.replace(/\D/g, '');
-    const message = 'Hi! I would like to request a free evaluation for my foot condition. I have attached an image for review.';
+    if (!selectedImage) {
+      alert('Please upload an image of your foot condition');
+      return;
+    }
+
+    const emailSubject = formData.subject 
+      ? `Free Evaluation Request: ${formData.subject}`
+      : 'Free Evaluation Request';
     
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const emailBody = `
+First Name: ${formData.firstName}
+Last Name: ${formData.lastName}
+Email: ${formData.email}
+${formData.subject ? `Subject: ${formData.subject}` : ''}
+
+Message:
+${formData.message}
+
+${selectedImage ? `[Note: Image attached: ${selectedImage.name}]` : '[No image attached]'}
+    `.trim();
+
+    const mailtoUrl = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoUrl;
   };
 
   const handleRemoveImage = () => {
@@ -60,7 +100,7 @@ export default function FreeEvaluation() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <h1>Free Evaluation/Consultation</h1>
-            <p className="hero-subtitle">Upload Picture Below</p>
+            <p className="hero-subtitle">Fill out the form below</p>
           </motion.div>
         </div>
       </section>
@@ -68,45 +108,103 @@ export default function FreeEvaluation() {
       <section className="evaluation-content">
         <div className="container">
           <div className="evaluation-box">
-            <div className="upload-section" onClick={() => fileInputRef.current?.click()}>
-              {previewUrl ? (
-                <div className="image-preview">
-                  <img src={previewUrl} alt="Preview" />
-                  <button className="remove-btn" onClick={(e) => { e.stopPropagation(); handleRemoveImage(); }}>
-                    <FiX size={20} />
-                  </button>
+            <form onSubmit={handleSubmit} className="evaluation-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstName">First Name *</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
-              ) : (
-                <div className="upload-placeholder">
-                  <FiUpload size={48} />
-                  <p>Click to upload an image</p>
-                  <span>PNG, JPG, JPEG up to 10MB</span>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name *</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
-              )}
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                style={{ display: 'none' }}
-              />
-            </div>
+              </div>
 
-            <div className="upload-info">
-              <p>Take a clear photo of your foot/feet concern area and upload it for a free evaluation by our nursing team.</p>
-            </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
 
-            <button 
-              className="btn btn-primary submit-btn" 
-              onClick={handleSubmit}
-              disabled={!selectedImage}
-            >
-              Submit for Free Evaluation
-            </button>
+              <div className="form-group">
+                <label htmlFor="message">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  required
+                />
+              </div>
 
-            <p className="note">
-              Note: After submission, you will be redirected to WhatsApp to send the image directly to our team.
-            </p>
+              <div className="form-group">
+                <label>Upload Image (Required) *</label>
+                <div className="upload-section" onClick={() => fileInputRef.current?.click()}>
+                  {previewUrl ? (
+                    <div className="image-preview">
+                      <img src={previewUrl} alt="Preview" />
+                      <button type="button" className="remove-btn" onClick={(e) => { e.stopPropagation(); handleRemoveImage(); }}>
+                        <FiX size={20} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="upload-placeholder">
+                      <FiUpload size={48} />
+                      <p>Click to upload an image</p>
+                      <span>PNG, JPG, JPEG up to 10MB</span>
+                    </div>
+                  )}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+              </div>
+
+              <button type="submit" className="btn btn-primary submit-btn">
+                Submit for Free Evaluation
+              </button>
+
+              <p className="note">
+                Note: After submission, your default email client will open with the form data. Please send the email to complete your evaluation request.
+              </p>
+            </form>
           </div>
         </div>
       </section>
