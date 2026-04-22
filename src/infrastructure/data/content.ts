@@ -1,61 +1,69 @@
-import type { Service, Provider, FAQItem, ScheduleSlot, ServiceDetail, ContactInfo } from '../../domain/entities/types';
+import type {
+  Service,
+  Provider,
+  FAQItem,
+  ScheduleSlot,
+  ServiceDetail,
+  ContactInfo,
+} from "../../domain/entities/types";
 
 export const CONTACT_INFO: ContactInfo = {
-  phone: '+1 (469) 594-2940',
-  whatsappNumber: '+14695942940',
-  // email: 'nurse@footrxhealth.com',
-  email: 'tovelrob@gmail.com',
-  address: '1421 N Hwy 67, STE 200-C Cedar Hill, TX, United States, Texas 75104',
-  instagram: 'https://www.instagram.com/footrxhealth/',
-  facebook: 'https://www.facebook.com/FootRXHealth',
+  phone: "+1 (469) 594-2940",
+  whatsappNumber: "+14695942940",
+  email: "nurse@footrxhealth.com",
+  // email: 'tovelrob@gmail.com',
+  address:
+    "1421 N Hwy 67, STE 200-C Cedar Hill, TX, United States, Texas 75104 (In the Shopping Center with Century 21)",
+  instagram: "https://www.instagram.com/footrxhealth/",
+  facebook: "https://www.facebook.com/FootRXHealth",
 };
 
 export const IN_OFFICE_SERVICES: Service[] = [
   {
-    id: 'callus-treatment',
-    name: 'Callus Treatment Only',
-    image: '/callus-t.jpg',
+    id: "callus-treatment",
+    name: "Callus Treatment Only",
+    image: "/callus-t.jpg",
   },
   {
-    id: 'wellness-pedicure',
-    name: 'Wellness Medical Pedicure',
-    image: 'wellness-mp.jpg',
+    id: "wellness-pedicure",
+    name: "Wellness Medical Pedicure",
+    image: "wellness-mp.jpg",
   },
   {
-    id: 'nail-trimming',
-    name: 'Toenail/Nail Trimming',
-    image: 'toe-nail-trimming.jpg',
+    id: "nail-trimming",
+    name: "Toenail/Nail Trimming",
+    image: "toe-nail-trimming.jpg",
   },
   {
-    id: 'medical-pedicure',
-    name: 'Medical Pedicure',
-    image: 'medical-pedicure.jpg',
+    id: "medical-pedicure",
+    name: "Medical Pedicure",
+    image: "medical-pedicure.jpg",
   },
 ];
 
 export const MOBILE_SERVICES: Service[] = [
   {
-    id: 'mobile-medical-pedicure',
-    name: 'Medical Pedicure',
-    image: 'medical-pedicure.jpg',
+    id: "mobile-medical-pedicure",
+    name: "Medical Pedicure",
+    image: "medical-pedicure.jpg",
   },
   {
-    id: 'mobile-callus-treatment',
-    name: 'Callus Treatment Only',
-    image: 'callus-t.jpg',
+    id: "mobile-callus-treatment",
+    name: "Callus Treatment Only",
+    image: "callus-t.jpg",
   },
   {
-    id: 'mobile-nail-trimming',
-    name: 'Toenail/Nail Trimming Only',
-    image: 'toe-nail-trimming.jpg',
+    id: "mobile-nail-trimming",
+    name: "Toenail/Nail Trimming Only",
+    image: "toe-nail-trimming.jpg",
   },
 ];
 
 export const PROVIDERS: Provider[] = [
   {
-    id: 'mj-edwards',
-    name: 'MJ Edwards BA, RN',
-    title: 'Registered Nurse-Led Foot, Wound, and Supportive Care',
+    id: "mj-edwards",
+    name: "MJ Edwards BA, RN",
+    title: "Registered Nurse-Led Foot, Wound, and Supportive Care",
     description: `Member of the American Foot Care Nurses Association 
 Apprenticeship under Dr. Lisa Brandy- DPM
 
@@ -72,9 +80,9 @@ This experience shaped my mission. I founded this practice to provide nursing-le
 This practice exists to bridge that gap—combining clinical nursing expertise with compassionate, individualized care for those who need it most.`,
   },
   {
-    id: 'nicole-cannon',
-    name: 'Nicole Cannon LVN',
-    title: 'LVN- Foot and Supportive Care',
+    id: "nicole-cannon",
+    name: "Nicole Cannon LVN",
+    title: "LVN- Foot and Supportive Care",
     description: `A Licensed Vocational Nurse dedicated to providing compassionate, patient-centered support within our nursing-led foot care practice. With a strong focus on safety, comfort, and dignity, Lisa plays an essential role in supporting clients throughout their care experience.
 
 Nicole assists with clinical foot care services under the direction of the Registered Nurse, helping ensure each visit is thorough, respectful, and attentive to individual needs. She is especially mindful of clients with mobility challenges, chronic conditions, or sensory changes, and is committed to creating a calm, supportive environment during care.
@@ -86,83 +94,89 @@ Her approach reflects our practice's core values—professionalism, prevention, 
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 1,
-    question: 'What is diabetic foot care?',
+    question: "What is diabetic foot care?",
     answer:
-      'Diabetic foot care focuses on preventing complications through RN-led assessment, safe nail and skin care, and early identification of changes related to circulation or sensation. Services are provided using conservative techniques within RN scope, with referral guidance when podiatric care is needed.',
+      "Diabetic foot care focuses on preventing complications through RN-led assessment, safe nail and skin care, and early identification of changes related to circulation or sensation. Services are provided using conservative techniques within RN scope, with referral guidance when podiatric care is needed.",
   },
   {
     id: 2,
-    question: 'What is preventive foot care?',
+    question: "What is preventive foot care?",
     answer:
-      'Preventive foot care is routine clinical maintenance designed to support healthy nails and skin, reduce buildup, and catch early concerns before they progress. This service is ideal for ongoing foot health and comfort.',
+      "Preventive foot care is routine clinical maintenance designed to support healthy nails and skin, reduce buildup, and catch early concerns before they progress. This service is ideal for ongoing foot health and comfort.",
   },
   {
     id: 3,
-    question: 'Do you offer mobile foot care services?',
+    question: "Do you offer mobile foot care services?",
     answer:
-      'Yes. Foot RX Health & Wellness offers mobile RN-led foot care for clients who prefer or require in-home services, including seniors and individuals with limited mobility. Mobile services include preventive and diabetic foot care, assessment, and education.',
+      "Yes. Foot RX Health & Wellness offers mobile RN-led foot care for clients who prefer or require in-home services, including seniors and individuals with limited mobility. Mobile services include preventive and diabetic foot care, assessment, and education.",
   },
   {
     id: 4,
-    question: 'Is this the same as a pedicure?',
+    question: "Is this the same as a pedicure?",
     answer:
-      'No. Our services are clinical and health-focused, not cosmetic. We do not provide salon pedicures or spa services.',
+      "No. Our services are clinical and health-focused, not cosmetic. We do not provide salon pedicures or spa services.",
   },
 ];
 
 export const SCHEDULE_SLOTS: ScheduleSlot[] = [
-  { day: 'Monday', times: ['9:00 AM - 12:00 PM', '1:00 PM - 5:00 PM'] },
-  { day: 'Tuesday', times: ['9:00 AM - 12:00 PM', '1:00 PM - 5:00 PM'] },
-  { day: 'Wednesday', times: ['9:00 AM - 12:00 PM', '1:00 PM - 5:00 PM'] },
-  { day: 'Thursday', times: ['9:00 AM - 12:00 PM', '1:00 PM - 5:00 PM'] },
-  { day: 'Friday', times: ['9:00 AM - 12:00 PM', '1:00 PM - 4:00 PM'] },
-  { day: 'Saturday', times: ['10:00 AM - 2:00 PM'] },
-  { day: 'Sunday', times: ['Closed'] },
+  { day: "Monday", times: ["9:00 AM - 12:00 PM", "1:00 PM - 5:00 PM"] },
+  { day: "Tuesday", times: ["9:00 AM - 12:00 PM", "1:00 PM - 5:00 PM"] },
+  { day: "Wednesday", times: ["9:00 AM - 12:00 PM", "1:00 PM - 5:00 PM"] },
+  { day: "Thursday", times: ["9:00 AM - 12:00 PM", "1:00 PM - 5:00 PM"] },
+  { day: "Friday", times: ["9:00 AM - 12:00 PM", "1:00 PM - 4:00 PM"] },
+  { day: "Saturday", times: ["10:00 AM - 2:00 PM"] },
+  { day: "Sunday", times: ["Closed"] },
 ];
 
 export const SERVICES_EXPLAINED: ServiceDetail[] = [
   {
-    id: 'callus-treatment',
-    name: 'Callus Treatment',
-    image: 'callus-t.jpg',
+    id: "callus-treatment",
+    name: "Callus Treatment",
+    image: "callus-t.jpg",
     description:
-      'Our callus treatment involves safe, careful removal of thickened skin using professional sterile instruments. We use moisturizing treatments to keep skin soft and prevent future buildup. This service is ideal for individuals with diabetes, neuropathy, or circulation issues who are prone to callus formation.',
+      "Our callus treatment involves safe, careful removal of thickened skin using professional sterile instruments. We use moisturizing treatments to keep skin soft and prevent future buildup. This service is ideal for individuals with diabetes, neuropathy, or circulation issues who are prone to callus formation.",
   },
   {
-    id: 'nail-clipping',
-    name: 'Finger Nail and Toe Nail Clipping Only',
-    image: 'fn-tn-c.jpg',
+    id: "nail-clipping",
+    name: "Finger Nail and Toe Nail Clipping Only",
+    image: "fn-tn-c.jpg",
     description:
-      'Our nail clipping service provides safe, professional trimming of fingernails and toenails. We use sterilized instruments and techniques that minimize the risk of ingrown nails, cuts, or infections. This service is especially important for individuals who have difficulty reaching their feet or have vision limitations.',
+      "Our nail clipping service provides safe, professional trimming of fingernails and toenails. We use sterilized instruments and techniques that minimize the risk of ingrown nails, cuts, or infections. This service is especially important for individuals who have difficulty reaching their feet or have vision limitations.",
   },
   {
-    id: 'medical-pedicure',
-    name: 'Medical Pedicure Foot Care',
-    image: 'medical-pedicure.jpg',
+    id: "medical-pedicure",
+    name: "Medical Pedicure Foot Care",
+    image: "medical-pedicure.jpg",
     description:
-      'Our medical pedicure is a comprehensive foot care service that includes nail trimming, cuticle care, callus reduction, and skin moisturizing. Performed by licensed nursing staff, this service focuses on preventive care and early detection of potential issues. It is designed for individuals with diabetes, poor circulation, neuropathy, or those seeking proactive foot health maintenance.',
+      "Our medical pedicure is a comprehensive foot care service that includes nail trimming, cuticle care, callus reduction, and skin moisturizing. Performed by licensed nursing staff, this service focuses on preventive care and early detection of potential issues. It is designed for individuals with diabetes, poor circulation, neuropathy, or those seeking proactive foot health maintenance.",
   },
 ];
 
 export const WHY_CHOOSE_US = [
   {
-    title: 'Expert Nursing Care',
-    description: 'All services are provided by licensed registered nurses with specialized training in foot care and wound management.',
+    title: "Expert Nursing Care",
+    description:
+      "All services are provided by licensed registered nurses with specialized training in foot care and wound management.",
   },
   {
-    title: 'Preventive Focus',
-    description: 'We prioritize early detection and prevention to stop small issues from becoming serious complications.',
+    title: "Preventive Focus",
+    description:
+      "We prioritize early detection and prevention to stop small issues from becoming serious complications.",
   },
   {
-    title: 'Comfort & Dignity',
-    description: 'Our patient-centered approach ensures comfort, respect, and personalized care for every client.',
+    title: "Comfort & Dignity",
+    description:
+      "Our patient-centered approach ensures comfort, respect, and personalized care for every client.",
   },
   {
-    title: 'Mobile Services',
-    description: 'We bring professional foot care to your home, making it accessible for those with mobility challenges.',
+    title: "Mobile Services",
+    description:
+      "We bring professional foot care to your home, making it accessible for those with mobility challenges.",
   },
 ];
 
 export const WHATSAPP_LINK = `tel:${CONTACT_INFO.whatsappNumber}`;
-export const BOOKING_LINK = 'https://clientportal.us.zandahealth.com/clientportal/footrxhealth/home';
-export const APPOINTMENT_BOOKING_LINK = 'https://clientportal.us.zandahealth.com/clientportal/footrxhealth/appointment-booking';
+export const BOOKING_LINK =
+  "https://clientportal.us.zandahealth.com/clientportal/footrxhealth/home";
+export const APPOINTMENT_BOOKING_LINK =
+  "https://clientportal.us.zandahealth.com/clientportal/footrxhealth/appointment-booking";
