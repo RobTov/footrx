@@ -194,4 +194,8 @@
   .upload-section {
     height: 220px;
   }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }

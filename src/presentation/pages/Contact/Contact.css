@@ -56,13 +56,18 @@
 .contact-icon {
   width: 40px;
   height: 40px;
-  background: var(--primary);
-  color: white;
+  background: transparent;
+  color: #21A082;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  color: #1A5C5D;
 }
 
 .contact-details {
