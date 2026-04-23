@@ -72,9 +72,9 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-main">
           <div className="footer-logos">
-            <img src="/log.png" alt="Logo" className="footer-logo" />
-            <img src="/afcn.png" alt="AFCN" className="footer-logo" />
-            <img src="/coopers-fc.png" alt="Coopers FC" className="footer-logo" />
+            <img src="/log.png" alt="Logo" className="footer-logo footer-logo-contain" />
+            <img src="/g2.png" alt="AFCN" className="footer-logo" />
+            <img src="/g1.png" alt="Coopers FC" className="footer-logo" />
           </div>
 
           <div className="footer-brand">

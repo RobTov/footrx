@@ -29,12 +29,16 @@
 }
 
 .footer-logo {
-  height: 100px;
-  width: 140px;
-  object-fit: contain;
+  height: 200px;
+  width: 240px;
+  object-fit: cover;
   background: white;
   padding: 8px 16px;
   border-radius: 8px;
+}
+
+.footer-logo-contain {
+  object-fit: contain;
 }
 
 .footer-brand h3 {
@@ -152,8 +156,8 @@
   }
 
   .footer-logo {
-    height: 60px;
-    width: 100px;
+    height: 140px;
+    width: 300px;
   }
 
   .footer {
