@@ -88,7 +88,7 @@ ${formData.message}
 
       let response;
       try {
-        response = await fetch('/api/sendMail', {
+        response = await fetch('https://footrx.vercel.app/api/sendMail', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
