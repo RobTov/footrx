@@ -14,17 +14,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const apiToken = process.env.MAILTRAP_PASS;
+  const senderEmail = process.env.MAILTRAP_SENDER || "info@norbwebsite.com";
+
+  console.log("Token:", apiToken ? "yes" : "NO");
+  console.log("Sender:", senderEmail);
+
+  if (!apiToken) {
+    return res.status(500).json({ error: "Missing token" });
+  }
+
   try {
     const { to, subject, text, attachment } = req.body;
-
-    const apiToken = process.env.MAILTRAP_API_TOKEN || process.env.MAILTRAP_PASS;
-    const senderEmail = process.env.MAILTRAP_SENDER || "info@norbwebsite.com";
-
-    console.log("Token set:", !!apiToken, "Sender:", senderEmail);
-
-    if (!apiToken || !senderEmail) {
-      return res.status(500).json({ error: "Email service not configured" });
-    }
 
     const attachments = [];
     if (attachment && attachment.base64 && attachment.filename) {
@@ -36,7 +37,11 @@ export default async function handler(req, res) {
       });
     }
 
-    const response = await doFetch("https://send.api.mailtrap.io/api/send", {
+    console.log("Sending:", subject, "to:", to);
+
+    const fetchFn = await doFetch;
+    
+    const response = await fetchFn("https://send.api.mailtrap.io/api/send", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiToken}`,
@@ -51,14 +56,13 @@ export default async function handler(req, res) {
       }),
     });
 
+    const responseText = await response.text();
+    console.log("Response:", response.status, responseText.substring(0, 200));
+
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("API error:", response.status, errorData);
-      return res.status(500).json({ error: errorData.message || "Email API error" });
+      return res.status(500).json({ error: "Email API error" });
     }
 
-    const result = await response.json();
-    console.log("Sent:", result.result);
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Error:", error.message);
