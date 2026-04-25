@@ -1,3 +1,5 @@
+import { MailtrapClient } from "mailtrap";
+
 export const config = {
   api: {
     bodyParser: {
@@ -6,7 +8,7 @@ export const config = {
   },
 };
 
-const doFetch = typeof fetch === "function" ? fetch : (...args) => import("node-fetch").then(m => m.default(...args));
+const getEnv = (key) => process.env[key];
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -14,18 +16,20 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const apiToken = process.env.MAILTRAP_PASS;
-  const senderEmail = process.env.MAILTRAP_SENDER || "info@norbwebsite.com";
+  const token = getEnv("MAILTRAP_PASS");
+  const senderEmail = getEnv("MAILTRAP_SENDER") || "info@norbwebsite.com";
 
-  console.log("Token:", apiToken ? "yes" : "NO");
-  console.log("Sender:", senderEmail);
+  console.log("Config - token:", token ? "yes" : "no");
+  console.log("Config - sender:", senderEmail);
 
-  if (!apiToken) {
-    return res.status(500).json({ error: "Missing token" });
+  if (!token) {
+    return res.status(500).json({ error: "Missing MAILTRAP_PASS" });
   }
 
   try {
     const { to, subject, text, attachment } = req.body;
+
+    const client = new MailtrapClient({ token });
 
     const attachments = [];
     if (attachment && attachment.base64 && attachment.filename) {
@@ -37,32 +41,17 @@ export default async function handler(req, res) {
       });
     }
 
-    console.log("Sending:", subject, "to:", to);
+    console.log("Sending email to:", to);
 
-    const fetchFn = await doFetch;
-    
-    const response = await fetchFn("https://send.api.mailtrap.io/api/send", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: { name: "FOOTRX Contact", email: senderEmail },
-        to: [{ email: to }],
-        subject: subject,
-        text: text,
-        attachments: attachments.length > 0 ? attachments : undefined,
-      }),
+    await client.send({
+      from: { name: "FOOTRX Contact", email: senderEmail },
+      to: [{ email: to }],
+      subject: subject,
+      text: text,
+      attachments: attachments.length > 0 ? attachments : undefined,
     });
 
-    const responseText = await response.text();
-    console.log("Response:", response.status, responseText.substring(0, 200));
-
-    if (!response.ok) {
-      return res.status(500).json({ error: "Email API error" });
-    }
-
+    console.log("Email sent successfully");
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Error:", error.message);
