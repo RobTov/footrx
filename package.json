@@ -13,6 +13,7 @@
     "@sendgrid/mail": "^8.1.6",
     "framer-motion": "^12.38.0",
     "mailtrap": "^4.5.1",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.2",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",

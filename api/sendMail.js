@@ -1,5 +1,3 @@
-import nodemailer from "nodemailer";
-
 export const config = {
   api: {
     bodyParser: {
@@ -7,6 +5,8 @@ export const config = {
     },
   },
 };
+
+const doFetch = typeof fetch === "function" ? fetch : (...args) => import("node-fetch").then(m => m.default(...args));
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -18,18 +18,13 @@ export default async function handler(req, res) {
     const { to, subject, text, attachment } = req.body;
 
     const apiToken = process.env.MAILTRAP_API_TOKEN || process.env.MAILTRAP_PASS;
-    const senderEmail = process.env.MAILTRAP_SENDER || process.env.MAILTRAP_USER + "@norbwebsite.com" || "info@norbwebsite.com";
+    const senderEmail = process.env.MAILTRAP_SENDER || "info@norbwebsite.com";
 
-    console.log("Env - API_TOKEN:", apiToken ? "set" : "missing");
-    console.log("Env - SENDER:", senderEmail);
-    console.log("All env:", Object.keys(process.env).filter(k => k.includes("MAIL")));
+    console.log("Token set:", !!apiToken, "Sender:", senderEmail);
 
-    if (!apiToken) {
-      console.error("MAILTRAP_API_TOKEN not configured");
+    if (!apiToken || !senderEmail) {
       return res.status(500).json({ error: "Email service not configured" });
     }
-
-    console.log("Sending via API to:", to, "subject:", subject);
 
     const attachments = [];
     if (attachment && attachment.base64 && attachment.filename) {
@@ -41,7 +36,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const response = await fetch("https://api.mailtrap.io/api/send", {
+    const response = await doFetch("https://send.api.mailtrap.io/api/send", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiToken}`,
@@ -58,8 +53,8 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error("Mailtrap API error:", response.status, errorData);
-      throw new Error(errorData.message || `API error: ${response.status}`);
+      console.error("API error:", response.status, errorData);
+      return res.status(500).json({ error: errorData.message || "Email API error" });
     }
 
     const result = await response.json();
