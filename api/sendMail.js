@@ -8,10 +8,6 @@ export const config = {
   },
 };
 
-const getEnv = (key, fallback) => {
-  return process.env[key] || fallback;
-};
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
@@ -21,8 +17,12 @@ export default async function handler(req, res) {
   try {
     const { to, subject, text, attachment } = req.body;
 
-    const apiToken = getEnv("MAILTRAP_API_TOKEN");
-    const senderEmail = getEnv("MAILTRAP_SENDER", "info@norbwebsite.com");
+    const apiToken = process.env.MAILTRAP_API_TOKEN || process.env.MAILTRAP_PASS;
+    const senderEmail = process.env.MAILTRAP_SENDER || process.env.MAILTRAP_USER + "@norbwebsite.com" || "info@norbwebsite.com";
+
+    console.log("Env - API_TOKEN:", apiToken ? "set" : "missing");
+    console.log("Env - SENDER:", senderEmail);
+    console.log("All env:", Object.keys(process.env).filter(k => k.includes("MAIL")));
 
     if (!apiToken) {
       console.error("MAILTRAP_API_TOKEN not configured");
