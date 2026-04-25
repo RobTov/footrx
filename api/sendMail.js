@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-import { ENVIRONMENT } from "../environment/environment";
 
 export const config = {
   api: {
@@ -7,6 +6,10 @@ export const config = {
       sizeLimit: "10mb",
     },
   },
+};
+
+const getEnv = (key, fallback) => {
+  return process.env[key] || fallback;
 };
 
 export default async function handler(req, res) {
@@ -18,16 +21,24 @@ export default async function handler(req, res) {
   try {
     const { to, subject, text, attachment } = req.body;
 
-    console.log("Sending to:", to, "subject:", subject);
+    const host = getEnv("MAILTRAP_HOST", "live.smtp.mailtrap.io");
+    const port = parseInt(getEnv("MAILTRAP_PORT", "587"), 10);
+    const user = getEnv("MAILTRAP_USER", "api");
+    const pass = getEnv("MAILTRAP_PASS");
+    const sender = getEnv("MAILTRAP_SENDER", "info@norbwebsite.com");
+
+    if (!pass) {
+      console.error("MAILTRAP_PASS not configured");
+      return res.status(500).json({ error: "Email service not configured" });
+    }
+
+    console.log("Sending to:", to, "subject:", subject, "from:", sender);
 
     const transporter = nodemailer.createTransport({
-      host: ENVIRONMENT.MAILTRAP_HOST,
-      port: parseInt(ENVIRONMENT.MAILTRAP_PORT, 10),
+      host,
+      port,
       secure: false,
-      auth: {
-        user: ENVIRONMENT.MAILTRAP_USER,
-        pass: ENVIRONMENT.MAILTRAP_PASS,
-      },
+      auth: { user, pass },
     });
 
     await transporter.verify();
@@ -43,7 +54,7 @@ export default async function handler(req, res) {
     }
 
     const info = await transporter.sendMail({
-      from: ENVIRONMENT.MAILTRAP_SENDER,
+      from: sender,
       to,
       subject,
       text,
