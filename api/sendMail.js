@@ -37,7 +37,6 @@ export default async function handler(req, res) {
       attachments.push({
         filename: attachment.filename,
         content: base64Data,
-        encoding: "base64",
       });
     }
 
