@@ -10,8 +10,8 @@ import type {
 export const CONTACT_INFO: ContactInfo = {
   phone: "+1 (469) 594-2940",
   whatsappNumber: "+14695942940",
-  email: "nurse@footrxhealth.com",
-  // email: 'tovelrob@proton.me',
+  // email: "nurse@footrxhealth.com",
+  email: 'tovelrob@proton.me',
   address:
     "1421 N Hwy 67, STE 200-C Cedar Hill, TX, United States, Texas 75104 (In the Shopping Center with Century 21)",
   instagram: "https://www.instagram.com/footrxhealth/",

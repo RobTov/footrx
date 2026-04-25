@@ -12,6 +12,15 @@ interface FormData {
   message: string;
 }
 
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function FreeEvaluation() {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
@@ -22,6 +31,8 @@ export default function FreeEvaluation() {
   });
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,7 +53,7 @@ export default function FreeEvaluation() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.message.trim()) {
@@ -55,11 +66,17 @@ export default function FreeEvaluation() {
       return;
     }
 
-    const emailSubject = formData.subject 
-      ? `Free Evaluation Request: ${formData.subject}`
-      : 'Free Evaluation Request';
-    
-    const emailBody = `
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const base64Image = await fileToBase64(selectedImage);
+      
+      const emailSubject = formData.subject 
+        ? `Free Evaluation Request: ${formData.subject}`
+        : 'Free Evaluation Request';
+      
+      const emailBody = `
 First Name: ${formData.firstName}
 Last Name: ${formData.lastName}
 Email: ${formData.email}
@@ -67,12 +84,64 @@ ${formData.subject ? `Subject: ${formData.subject}` : ''}
 
 Message:
 ${formData.message}
+      `.trim();
 
-${selectedImage ? `[Note: Image attached: ${selectedImage.name}]` : '[No image attached]'}
-    `.trim();
+      let response;
+      try {
+        response = await fetch('/api/sendMail', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: CONTACT_INFO.email,
+            subject: emailSubject,
+            text: emailBody,
+            attachment: {
+              filename: selectedImage.name,
+              base64: base64Image,
+            },
+          }),
+        });
+      } catch (fetchError) {
+        console.error('Fetch error:', fetchError);
+        throw new Error('Network error: Could not reach server');
+      }
 
-    const mailtoUrl = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoUrl;
+      const result = await response.json().catch(() => ({ error: 'Invalid response' }));
+      console.log('Response:', response.status, result);
+
+      if (!response.ok) {
+        if (result.code === 'SENDER_NOT_VERIFIED') {
+          throw new Error('Email configuration error. Please contact the administrator.');
+        }
+        throw new Error(result.error || `Server error: ${response.status}`);
+      }
+
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+      setSelectedImage(null);
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        setPreviewUrl(null);
+      }
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+      alert('Your evaluation request has been sent successfully!');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      alert('Failed to send your request. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleRemoveImage = () => {
@@ -197,13 +266,15 @@ ${selectedImage ? `[Note: Image attached: ${selectedImage.name}]` : '[No image a
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary submit-btn">
-                Submit for Free Evaluation
+              <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Submit for Free Evaluation'}
               </button>
 
-              <p className="note">
-                Note: After submission, your default email client will open with the form data. Please send the email to complete your evaluation request.
-              </p>
+              {submitStatus === 'success' && (
+                <p className="note" style={{ color: '#21A082' }}>
+                  Your evaluation request has been sent successfully. We will contact you soon.
+                </p>
+              )}
             </form>
           </div>
         </div>

@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 PROJECT_SUMMARY.md
+/environment/
