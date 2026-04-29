@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SCHEDULE_SLOTS, APPOINTMENT_BOOKING_LINK } from '../../../infrastructure/data/content';
+import { SCHEDULE_SLOTS, BOOKING_LINK } from '../../../infrastructure/data/content';
 import './Schedule.css';
 
 export default function Schedule() {
@@ -48,7 +48,7 @@ export default function Schedule() {
 
           <div className="booking-cta">
             <a 
-              href={APPOINTMENT_BOOKING_LINK} 
+              href={BOOKING_LINK} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn-primary btn-large"

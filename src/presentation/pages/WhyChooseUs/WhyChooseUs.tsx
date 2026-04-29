@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { WHY_CHOOSE_US, APPOINTMENT_BOOKING_LINK } from '../../../infrastructure/data/content';
+import { WHY_CHOOSE_US, BOOKING_LINK } from '../../../infrastructure/data/content';
 import './WhyChooseUs.css';
 
 export default function WhyChooseUs() {
@@ -107,7 +107,7 @@ export default function WhyChooseUs() {
           </div>
 
           <div className="cta-container">
-            <a href={APPOINTMENT_BOOKING_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+            <a href={BOOKING_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
               Schedule Your Visit
             </a>
           </div>

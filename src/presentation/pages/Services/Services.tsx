@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { IN_OFFICE_SERVICES, MOBILE_SERVICES, BOOKING_LINK, WHATSAPP_LINK } from '../../../infrastructure/data/content';
+import { IN_OFFICE_SERVICES, MOBILE_SERVICES, BOOKING_LINK, WHATSAPP_LINK, APPOINTMENT_BOOKING_LINK } from '../../../infrastructure/data/content';
 import './Services.css';
 
 export default function Services() {
@@ -93,7 +93,7 @@ export default function Services() {
 
           <div className="cta-container">
             <a 
-              href={BOOKING_LINK} 
+              href={APPOINTMENT_BOOKING_LINK} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn-primary"

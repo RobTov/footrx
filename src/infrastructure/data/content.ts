@@ -177,6 +177,6 @@ export const WHY_CHOOSE_US = [
 
 export const WHATSAPP_LINK = `tel:${CONTACT_INFO.whatsappNumber}`;
 export const BOOKING_LINK =
-  "https://clientportal.us.zandahealth.com/clientportal/footrxhealth/home";
+  "https://footrxhealthandwellness.janeapp.com/locations/foot-rx-health-and-wellness-studio/book";
 export const APPOINTMENT_BOOKING_LINK =
-  "https://clientportal.us.zandahealth.com/clientportal/footrxhealth/appointment-booking";
+  "https://footrxhealthandwellness.janeapp.com/locations/foot-rx-health-and-wellness-mobile-services/book#staff_member/1";
