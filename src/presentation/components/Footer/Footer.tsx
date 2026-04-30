@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-brand">
-            <h3>FOOTRX</h3>
+            <h3>FOOT&nbsp;RX</h3>
             <p>Medical-Grade Foot and Nail Care</p>
           </div>
 

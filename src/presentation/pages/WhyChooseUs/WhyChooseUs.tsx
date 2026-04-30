@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <h1>Why Choose FOOTRX</h1>
+            <h1>Why Choose FOOT&nbsp;RX</h1>
             <p className="hero-subtitle">
               Your feet deserve the same level of care and attention as any other part of your body.
             </p>
@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
       <section className="benefits-section">
         <div className="container">
           <div className="section-title">
-            <h2>Why FOOTRX Stands Out</h2>
+            <h2>Why FOOT&nbsp;RX Stands Out</h2>
             <p>
               We combine nursing expertise with compassionate care to provide the best possible 
               foot health services.

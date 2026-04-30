@@ -20,7 +20,7 @@ export default function Contact() {
           >
             <h1>Contact Us</h1>
             <p className="hero-subtitle">
-              Get in touch with FOOTRX for professional foot care services.
+              Get in touch with FOOT&nbsp;RX for professional foot care services.
             </p>
           </motion.div>
         </div>
@@ -87,7 +87,7 @@ export default function Contact() {
                   style={{ border: 0 }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="FOOTRX Location"
+                  title="FOOT&nbsp;RX Location"
                 />
               </div>
             </div>

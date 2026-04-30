@@ -22,7 +22,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
-          <h1><span className="hero-title-foot">FOOT</span><span className="hero-title-rx">RX</span></h1>
+          <h1><span className="hero-title-foot">FOOT&nbsp;</span><span className="hero-title-rx">RX</span></h1>
           <p className="hero-subtitle">Medical-Grade Foot and Nail Care!</p>
         </motion.div>
 
