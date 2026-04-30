@@ -47,7 +47,7 @@ export default function Schedule() {
                   <h2>Available Walk-In Hours</h2>
                 </div>
                 <div className="days-grid">
-                  {availableDays.map((item, index) => (
+                  {availableDays.map((item) => (
                     <div key={item.day} className="day-row">
                       <span className="day-name">{item.day}</span>
                       <span className="day-hours">{item.hours}</span>
