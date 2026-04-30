@@ -92,7 +92,7 @@ export default function Footer() {
               <FiMail />
               <span>{CONTACT_INFO.email}</span>
             </a>
-            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`} target="_blank" rel="noopener noreferrer" className="contact-item">
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.addressLink)}`} target="_blank" rel="noopener noreferrer" className="contact-item">
               <FiMapPin />
               <span>{CONTACT_INFO.address}</span>
             </a>

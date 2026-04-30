@@ -14,6 +14,7 @@ export const CONTACT_INFO: ContactInfo = {
   // email: 'tovelrob@proton.me',
   address:
     "1421 N Hwy 67, STE 200-C Cedar Hill, TX, United States, Texas 75104 (In the Shopping Center with Century 21)",
+  addressLink: "1421 N Hwy 67, STE 200-C Cedar Hill, TX, United States, Texas 75104",
   instagram: "https://www.instagram.com/footrxhealth/",
   facebook: "https://www.facebook.com/FootRXHealth",
 };

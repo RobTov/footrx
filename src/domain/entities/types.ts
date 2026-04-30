@@ -27,6 +27,7 @@ export interface ContactInfo {
   whatsappNumber: string;
   email: string;
   address: string;
+  addressLink: string;
   instagram: string;
   facebook: string;
 }
