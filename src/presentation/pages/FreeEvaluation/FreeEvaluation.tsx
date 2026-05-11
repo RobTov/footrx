@@ -87,8 +87,9 @@ ${formData.message}
       `.trim();
 
       let response;
+      // let oldURL: 'https://footrx.vercel.app/api/sendMail'
       try {
-        response = await fetch('https://footrx.vercel.app/api/sendMail', {
+        response = await fetch('https://www.footrxhealth.com/api/sendMail', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
