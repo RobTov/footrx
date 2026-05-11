@@ -69,6 +69,11 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.hero-title-sub {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
 .hero-subtitle {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.9);
